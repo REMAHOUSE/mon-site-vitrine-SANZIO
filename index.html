@@ -380,102 +380,108 @@
 }
 
 
-  @media screen and (max-width: 768px) {
-    body {
-      padding-top: 120px;
-    }
-
-    header {
-      font-size: 40px;
-      padding: 10px 0;
-    }
-
-    .navbar {
-      flex-direction: column;
-      height: auto;
-      padding: 10px;
-      align-items: center;
-    }
-
-    .nav-links {
-      flex-direction: column;
-      align-items: center;
-      margin-left: 0;
-      gap: 10px;
-    }
-
-    .inline-search {
-      margin: 10px 0;
-      width: 100%;
-      justify-content: center;
-    }
-
-    .inline-search input {
-      width: 70%;
-    }
-
-    .overlay-box,
-    .overlay-right {
-      position: static;
-      width: 90%;
-      margin: 20px auto;
-      height: auto;
-      font-size: 18px;
-      padding: 20px;
-    }
-
-    .photo-overlay,
-    .team-overlay-custom {
-      position: static;
-      width: 90%;
-      margin: 30px auto;
-      top: auto;
-      right: auto;
-    }
-
-    .service-box {
-      flex-direction: column;
-      margin: 20px auto;
-      width: 90%;
-    }
-
-    .service-box img {
-      width: 100%;
-      height: auto;
-    }
-
-    .service-text {
-      padding: 15px;
-      font-size: 18px;
-    }
-
-    footer {
-      font-size: 16px;
-      padding: 20px;
-      text-align: center;
-    }
-
-    footer img {
-      display: block;
-      margin: 10px auto;
-    }
-
-    video {
-      max-width: 100%;
-      height: auto;
-    }
-
-    .menu-icon {
-      position: static;
-      margin-top: 10px;
-    }
-
-    .lang-menu {
-      right: auto;
-      left: 50%;
-      transform: translateX(-50%);
-    }
+@media screen and (max-width: 768px) {
+  body {
+    padding-top: 120px;
   }
+
+  header {
+    font-size: 40px;
+    padding: 10px 0;
+  }
+
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+    align-items: center;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0;
+    gap: 10px;
+  }
+
+  .inline-search {
+    margin: 10px 0;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .inline-search input {
+    width: 70%;
+  }
+
+  /* Correction des overlays superposés */
+  .overlay-box,
+  .overlay-right,
+  .photo-overlay,
+  .team-overlay-custom,
+  #contact-mail {
+    position: static !important;
+    width: 90%;
+    margin: 30px auto !important;
+    height: auto !important;
+    top: auto !important;
+    right: auto !important;
+    z-index: auto !important;
+  }
+
+  .service-box {
+    flex-direction: column;
+    margin: 20px auto;
+    width: 90%;
+  }
+
+  .service-box img {
+    width: 100%;
+    height: auto;
+  }
+
+  .service-text {
+    padding: 15px;
+    font-size: 18px;
+  }
+
+  footer {
+    font-size: 16px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  footer img {
+    display: block;
+    margin: 10px auto;
+  }
+
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .menu-icon {
+    position: static;
+    margin-top: 10px;
+  }
+
+  .lang-menu {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Espacement entre blocs */
+  .overlay-box,
+  .overlay-right,
+  .photo-overlay,
+  .team-overlay-custom,
+  #contact-mail {
+    margin-bottom: 30px;
+  }
+}
+
 </style>
 
 
@@ -884,3 +890,4 @@
 
 </body>
 </html>
+
