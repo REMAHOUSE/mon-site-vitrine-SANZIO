@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>RHEMAHOUSE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding-top: 170px;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+        }
+
+        .inline-search {
+            display: flex;
+            align-items: center;
+            margin-right: 50px;
+        }
+
+            .inline-search input {
+                padding: 5px 10px;
+                font-size: 14px;
+                border: 2px solid #001f3f;
+                border-radius: 20px 0 0 20px;
+                outline: none;
+                font-family: Arial, sans-serif;
+            }
+
+            .inline-search button {
+                border: 2px solid #001f3f;
+                border-left: none;
+                border-radius: 0 20px 20px 0;
+                background-color: transparent;
+                cursor: pointer;
+                padding: 4px 6px;
+            }
+
+        .loupe-icon {
+            width: 40px;
+            height: 40px;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: #001f3f;
+            color: yellow;
+            padding: 17px 0;
+            text-align: center;
+            font-size: 60px;
+            font-weight: bold;
+            font-family: "Arial Black", sans-serif;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 120px;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+            z-index: 999;
+        }
+
+        .inline-search button {
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .inline-search input {
+            padding: 5px 10px;
+            font-size: 14px;
+            border: 2px solid #001f3f;
+            border-radius: 20px 0 0 20px;
+            outline: none;
+            font-family: Arial, sans-serif;
+        }
+
+        .inline-search button {
+            height: 50px;
+            border: 2px solid #001f3f;
+            border-radius: 0 20px 20px 0;
+            background-color: transparent;
+            cursor: pointer;
+            padding: 3px 6px;
+            display: flex;
+            margin-left: -2px;
+        }
+
+        .loupe-icon {
+            width: 40px;
+            height: 40px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            font-family: "Arial Black", sans-serif;
+            margin-left: 85px;
+            flex: 1;
+            right: 30px;
+        }
+
+            .nav-links a {
+                text-decoration: none;
+                color: #001f3f;
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+                .nav-links a:hover {
+                    color: #007BFF;
+                }
+
+        .menu-icon {
+            position: absolute;
+            right: 80px;
+            width: 40px;
+            height: 40px;
+        }
+
+        .image-container {
+            background-image: url('try.jfif');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            position: relative;
+            color: white;
+        }
+
+        .overlay-box,
+        .overlay-right {
+            position: absolute;
+            background-color: rgba(0, 31, 63, 0.75);
+            padding: 30px;
+            border-radius: 20px;
+            font-family: Arial Black, sans-serif;
+        }
+
+        .overlay-box {
+            top: 30%;
+            left: 40px;
+            transform: translateY(-30%);
+            width: 400px;
+            height: 400px;
+            font-size: 28px;
+        }
+
+            .overlay-box ul {
+                padding-left: 20px;
+                font-size: 20px;
+                line-height: 1.6;
+            }
+
+        .overlay-right {
+            top: 30%;
+            right: 40px;
+            transform: translateY(-30%);
+            width: 800px;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        footer {
+            background-color: #001f3f;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 18px;
+        }
+
+            footer img {
+                vertical-align: middle;
+            }
+
+        #services {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: background-image 1s ease-in-out;
+            color: #001f3f;
+            padding: 80px 20px;
+        }
+
+        .service-box {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin: 40px 0 40px 40px;
+            max-width: 900px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+            .service-box img {
+                width: 250px;
+                height: 250px;
+                object-fit: cover;
+            }
+
+        .service-text {
+            padding: 20px;
+            font-size: 20px;
+            flex: 1;
+        }
+
+            .service-text h2 {
+                margin-top: 0;
+                color: #003366;
+            }
+
+        @media screen and (max-width: 768px) {
+            .service-box {
+                flex-direction: column;
+            }
+
+            .overlay-box,
+            .overlay-right {
+                width: 90%;
+                height: auto;
+                font-size: 18px;
+                left: 5%;
+                right: 5%;
+            }
+
+            .nav-links {
+                flex-direction: column;
+            }
+
+            .navbar {
+                flex-direction: column;
+            }
+        }
+
+        .photo-overlay {
+            position: absolute;
+            right: 46px;
+            top: calc(100vh + 290px);
+            width: 470px;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+        }
+
+            .photo-overlay img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: absolute;
+                border-radius: 20px;
+                transition: opacity 1s ease-in-out;
+                opacity: 0;
+            }
+
+                .photo-overlay img:first-child {
+                    opacity: 1;
+                }
+
+
+
+
+
+
+
+
+.team-overlay-custom {
+    position: absolute;
+    right: 46px;
+    top: calc(100vh + 585px); /* Ajuste si besoin */
+    width: 470px;
+    height: 546px;
+    background-color: rgba(0, 31, 63, 0.9);
+    border-radius: 20px;
+    overflow: hidden;
+    text-align: center;
+    color: white;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 5;
+}
+
+.team-overlay-custom img {
+    width: 100%;
+    height: 370px;
+    object-fit: cover;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.team-caption {
+    padding: 10px 20px 0 20px;
+}
+
+.team-caption h3 {
+    margin: 0;
+    font-family: 'Arial Black', sans-serif;
+    font-size: 22px;
+}
+
+.team-caption p {
+    margin-top: 5px;
+    font-size: 16px;
+    color: #aadfff;
+}
+
+.team-controls {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px 20px;
+}
+
+.team-controls button {
+    background-color: #007BFF;
+    border: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+
+
+.lang-menu {
+  position: absolute;
+  top: 80px; /* ajuste selon ta navbar */
+  right: 80px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  border-radius: 8px;
+  padding: 8px;
+  display: none;
+  flex-direction: column;
+  z-index: 1001;
+}
+
+.lang-menu button {
+  background: none;
+  border: none;
+  padding: 5px;
+  margin: 4px 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.lang-menu img {
+  width: 28px;
+  height: 20px;
+  border-radius: 4px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+}
+
+
+  @media screen and (max-width: 768px) {
+    body {
+      padding-top: 120px;
+    }
+
+    header {
+      font-size: 40px;
+      padding: 10px 0;
+    }
+
+    .navbar {
+      flex-direction: column;
+      height: auto;
+      padding: 10px;
+      align-items: center;
+    }
+
+    .nav-links {
+      flex-direction: column;
+      align-items: center;
+      margin-left: 0;
+      gap: 10px;
+    }
+
+    .inline-search {
+      margin: 10px 0;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .inline-search input {
+      width: 70%;
+    }
+
+    .overlay-box,
+    .overlay-right {
+      position: static;
+      width: 90%;
+      margin: 20px auto;
+      height: auto;
+      font-size: 18px;
+      padding: 20px;
+    }
+
+    .photo-overlay,
+    .team-overlay-custom {
+      position: static;
+      width: 90%;
+      margin: 30px auto;
+      top: auto;
+      right: auto;
+    }
+
+    .service-box {
+      flex-direction: column;
+      margin: 20px auto;
+      width: 90%;
+    }
+
+    .service-box img {
+      width: 100%;
+      height: auto;
+    }
+
+    .service-text {
+      padding: 15px;
+      font-size: 18px;
+    }
+
+    footer {
+      font-size: 16px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer img {
+      display: block;
+      margin: 10px auto;
+    }
+
+    video {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .menu-icon {
+      position: static;
+      margin-top: 10px;
+    }
+
+    .lang-menu {
+      right: auto;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+</style>
+
+
+
+
+
+
+</head>
+
+<body>
+
+    <header>
+        RHEMAHOUSE
+    </header>
+    <div class="navbar">
+        <form class="inline-search">
+            <input type="text" placeholder="Rechercher...">
+            <button type="submit">
+                <img src="loupe.png" alt="Loupe" class="loupe-icon">
+            </button>
+        </form>
+
+        <!-- Français -->
+        <div class="nav-links lang" data-lang="fr">
+            <a href="#">Accueil</a>
+            <a href="#services">Nos services</a>
+            <a href="#contact-mail">Nous contacter</a>
+            <a href="#">Galerie</a>
+            <a href="#">Notre mission</a>
+        </div>
+
+        <!-- Anglais -->
+        <div class="nav-links lang" data-lang="en" style="display: none;">
+            <a href="#">Home</a>
+            <a href="#services">Our Services</a>
+            <a href="#contact-mail">Contact Us</a>
+            <a href="#">Gallery</a>
+            <a href="#">Our Mission</a>
+        </div>
+
+
+        <img src="burger-menu.png" alt="Menu" class="menu-icon" onclick="toggleLangMenu()">
+
+        <div class="lang-menu" id="lang-menu">
+            <button onclick="setLanguage('fr')"><img src="FRANCE.png" alt="Français" title="Français"></button>
+            <button onclick="setLanguage('en')"><img src="R.jfif" alt="English" title="English"></button>
+        </div>
+
+    </div>
+
+    <div class="image-container">
+        <div class="overlay-box">
+            <!-- Titre -->
+            <h2 class="lang" data-lang="fr">🚀 Nos services</h2>
+            <h2 class="lang" data-lang="en" style="display: none;">🚀 Our Services</h2>
+
+            <!-- Liste FR -->
+            <ul class="lang" data-lang="fr">
+                <li>Montage de Tricycles</li>
+                <li>Transport des Tricycles</li>
+                <li>Vente des pièces de rechange</li>
+                <li>Réparation de véhicules</li>
+                <li>Réparation de motos</li>
+            </ul>
+
+            <!-- Liste EN -->
+            <ul class="lang" data-lang="en" style="display: none;">
+                <li>Tricycle Assembly</li>
+                <li>Tricycle Transport</li>
+                <li>Spare Parts Sales</li>
+                <li>Vehicle Repair</li>
+                <li>Motorbike Repair</li>
+            </ul>
+        </div>
+
+        <div class="overlay-right">
+            <h2 class="lang" data-lang="fr">Notre mission</h2>
+            <h2 class="lang" data-lang="en" style="display: none;">Our Mission</h2>
+
+            <p class="lang" data-lang="fr">
+                Chez Rhemahouse, notre mission est de fournir des solutions de transport innovantes et fiables à Lubumbashi
+                et au-delà. Nous nous engageons à améliorer la mobilité de nos clients grâce à nos tricycles de haute qualité
+                et nos services de réparation. Notre vision est de devenir le leader du marché dans le secteur du montage de tricycles
+                et des services connexes en République Démocratique du Congo.
+                <em><br>Votre confiance, notre moteur.</em>
+            </p>
+
+            <p class="lang" data-lang="en" style="display: none;">
+                At Rhemahouse, our mission is to provide innovative and reliable transport solutions in Lubumbashi
+                and beyond. We are committed to improving our clients’ mobility through our high-quality tricycles
+                and repair services. Our vision is to become the market leader in tricycle assembly
+                and related services in the Democratic Republic of the Congo.
+                <em><br>Your trust, our drive.</em>
+            </p>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+    <section id="services">
+
+        <!-- 🇫🇷 Français -->
+        <div class="lang" data-lang="fr">
+            <div class="service-box">
+                <img src="montage.jpg" alt="Montage de tricycles chez RHEMAHOUSE">
+                <div class="service-text">
+                    <h2>Montage de Tricycles</h2>
+                    Le montage de tricycle consiste à assembler les différentes pièces mécaniques et électriques.<br>
+                    pour créer un véhicule fonctionnel. Ce processus garantit la qualité et la sécurité du tricycle.<br>
+                    avant sa mise en circulation. Il nécessite des compétences techniques précises et un contrôle rigoureux.<br>
+                </div>
+            </div>
+
+            <div class="service-box">
+                <img src="transport.jfif" alt="Transport de Tricycles RHEMAHOUSE">
+                <div class="service-text">
+                    <h2>Transport des Tricycles</h2>
+                    Motos et bus : Les tricycles, motos et bus sont utilisés pour le transport de personnes et de marchandises.<br>
+                    Offrant des solutions adaptées à différents besoins. Les tricycles sont particulièrement efficaces pour les trajets courts<br>
+                    et les zones difficiles d’accès. Les bus assurent le transport collectif tandis que les motos permettent une mobilité rapide en milieu urbain.<br>
+                </div>
+            </div>
+
+            <div class="service-box">
+                <img src="piece.jfif" alt="Pièces de rechange pour Tricycles">
+                <div class="service-text">
+                    <h2>Vente des pièces de rechange</h2>
+                    La vente de tricycles s’adresse aux particuliers et professionnels cherchant un moyen de transport économique et polyvalent.<br>
+                    L’entreprise propose différents modèles adaptés aux usages variés, du transport de passagers à la livraison de marchandises.<br>
+                    Un service après-vente accompagne souvent la vente pour assurer la satisfaction client.<br>
+                </div>
+            </div>
+
+            <div class="service-box">
+                <img src="reparation.jpg" alt="Réparation de véhicules">
+                <div class="service-text">
+                    <h2>Réparation de véhicules</h2>
+                    La réparation des véhicules inclut le diagnostic, l’entretien et la remise en état des moteurs, freins, suspensions, et autres composants.<br>
+                    Elle vise à prolonger la durée de vie des véhicules et garantir leur sécurité sur la route. Cette activité nécessite un savoir-faire technique et des équipements spécialisés.<br>
+                </div>
+            </div>
+
+            <div class="service-box">
+                <img src="moto.jpg" alt="Réparation de motos">
+                <div class="service-text">
+                    <h2>Réparation de motos</h2>
+                    La réparation des motos porte sur les systèmes mécaniques et électriques spécifiques à ces deux-roues.<br>
+                    Elle comprend la maintenance régulière, le remplacement de pièces usées et la résolution de pannes.<br>
+                    Ce service est essentiel pour assurer la fiabilité et la sécurité des motos utilisées au quotidien.<br>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🇬🇧 English -->
+        <div class="lang" data-lang="en" style="display: none;">
+            <div class="service-box">
+                <img src="montage.jpg" alt="Tricycle Assembly at RHEMAHOUSE">
+                <div class="service-text">
+                    <h2>Tricycle Assembly</h2>
+                    Tricycle assembly involves putting together mechanical and electrical components<br>
+                    to create a fully functional vehicle. This process ensures the quality and safety of the tricycle<br>
+                    before being put into circulation. It requires technical expertise and strict quality control.<br>
+                </div>
+            </div>
+
+            <div class="service-box">
+                <img src="transport.jfif" alt="RHEMAHOUSE Tricycle Transport">
+                <div class="service-text">
+                    <h2>Tricycle Transport</h2>
+                    Tricycles, motorcycles, and buses are used to transport people and goods,<br>
+                    offering flexible solutions for various needs. Tricycles are ideal for short trips<br>
+                    and hard-to-reach areas. Buses provide collective transportation, while motorcycles ensure urban mobility.<br>
+                </div>
+            </div>
+
+            <div class="service-box">
+                <img src="piece.jfif" alt="Spare Parts for Tricycles">
+                <div class="service-text">
+                    <h2>Spare Parts Sales</h2>
+                    Tricycles are sold to individuals and businesses looking for an economical and versatile means of transport.<br>
+                    The company offers various models tailored for transporting passengers or delivering goods.<br>
+                    After-sales service is often included to ensure customer satisfaction.<br>
+                </div>
+            </div>
+
+            <div class="service-box">
+                <img src="reparation.jpg" alt="Vehicle Repair">
+                <div class="service-text">
+                    <h2>Vehicle Repair</h2>
+                    Vehicle repair includes diagnostics, maintenance, and restoration of engines, brakes, suspensions, and other components.<br>
+                    It aims to extend vehicle lifespan and ensure road safety. This service requires skilled technicians and specialized equipment.<br>
+                </div>
+            </div>
+
+            <div class="service-box">
+                <img src="moto.jpg" alt="Motorcycle Repair">
+                <div class="service-text">
+                    <h2>Motorcycle Repair</h2>
+                    Motorcycle repair focuses on the mechanical and electrical systems specific to two-wheelers.<br>
+                    It includes regular maintenance, replacement of worn parts, and fault resolution.<br>
+                    This service is essential to ensure the reliability and safety of motorcycles used daily.<br>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <div class="photo-overlay">
+        <img src="montage.jpg" alt="Montage" class="slide" style="display: block;">
+        <img src="transport.jfif" alt="Transport" class="slide">
+        <img src="piece.jfif" alt="Pièce" class="slide">
+        <img src="reparation.jpg" alt="Réparation" class="slide">
+        <img src="moto.jpg" alt="Moto" class="slide">
+
+        <video class="slide" muted>
+            <source src="VIDEO 1.MP4" type="video/mp4">
+        </video>
+        <video class="slide" muted>
+            <source src="VIDEO 2.MP4" type="video/mp4">
+        </video>
+
+    </div>
+
+        <div class="team-overlay-custom">
+            <img id="team-photo" src="FREDY.jpg" alt="Membre de l'équipe">
+            <div class="team-caption">
+                <h3 id="team-name">Simon Mvita</h3>
+                <p id="team-role">Directeur Général</p>
+            </div>
+            <div class="team-controls">
+                <button onclick="prevTeam()">◀</button>
+                <button onclick="nextTeam()">▶</button>
+            </div>
+        </div>
+
+
+        <div id="contact-mail" style="position: absolute; right: 40px; top: calc(100vh + 1150px); width: 350px; background-color: rgba(0, 31, 63, 0.85); color: white; padding: 60px; border-radius: 20px; font-family: Arial, sans-serif;">
+            <h2 style="font-family: 'Arial Black', sans-serif; text-align: center;">✉️ Contactez-nous</h2>
+            <p>Vous avez une question, une demande ou un avis à partager ? N'hésitez pas à nous écrire !</p>
+            <form action="mailto:mvitapasteursimon@gmail.com" method="POST" enctype="text/plain">
+                <label for="nom">Nom :</label><br>
+                <input type="text" id="nom" name="nom" style="width: 100%; padding: 8px; margin-bottom: 10px; border-radius: 8px; border: none;"><br>
+
+                <label for="email">Votre Email :</label><br>
+                <input type="email" id="email" name="email" style="width: 100%; padding: 8px; margin-bottom: 10px; border-radius: 8px; border: none;"><br>
+
+                <label for="message">Message :</label><br>
+                <textarea id="message" name="message" rows="6" style="width: 100%; padding: 8px; border-radius: 8px; border: none; resize: none;"></textarea><br><br>
+
+                <button type="submit" style="background-color: #00aaff; border: none; color: white; font-weight: bold; padding: 10px 20px; border-radius: 30px; cursor: pointer; display: flex; align-items: center; margin: auto;">
+                    <img src="avion.png" alt="Envoyer" style="width: 20px; height: 20px; margin-right: 10px;">Envoyer
+                </button>
+            </form>
+        </div>
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+    <footer>
+        <img src="adresse.png" alt="Adresse" width="50" style="margin-bottom: 10px;"><br>
+        N° 43, Commune Ruashi<br>
+        Avenue Kiwele<br>
+        Ville de Lubumbashi<br>
+        République Démocratique du Congo<br>
+
+        <hr style="border: none; height: 1px; background-color: #ccc; width: 60%; margin: 20px auto;">
+
+        <img src="Email.png" alt="Email" width="30" style="margin-right: 20px;">
+        <img src="tel.png" alt="Téléphone" width="30"><br><br>
+
+        <div style="color: #00aaff; font-weight: bold;">
+            mvitapasteursimon@gmail.com
+        </div>
+
+        <div style="margin-top: 10px;">
+            +243 976 046 314 / +243 895 967 191
+        </div>
+    </footer>
+    <script>
+  // 🎞️ Slideshow secondaire (photo-overlay) : images 3s, vidéos 2min
+  let slideIndex = 0;
+  const slides = document.querySelectorAll('.photo-overlay .slide');
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.style.opacity = (i === index) ? 1 : 0;
+
+      if (slide.tagName === "VIDEO") {
+        slide.muted = true;
+        slide.loop = false;
+        slide.autoplay = true;
+        slide.pause();
+        if (i === index) {
+          slide.currentTime = 0;
+          slide.play();
+        }
+      }
+    });
+
+    const currentSlide = slides[index];
+    const delay = currentSlide.tagName === "VIDEO" ? 120000 : 3000; // 2 min ou 3 sec
+
+    setTimeout(() => {
+      if (currentSlide.tagName === "VIDEO") currentSlide.pause();
+      slideIndex = (slideIndex + 1) % slides.length;
+      showSlide(slideIndex);
+    }, delay);
+  }
+
+  showSlide(slideIndex);
+    </script>
+
+    <script>
+  // 🖼️ Slideshow de fond pour la section services
+  const backgroundImages = [
+    "1.jfif", "2.jfif", "3.jfif", "4.jfif", "5.jfif",
+    "6.jfif", "7.jfif", "8.jfif", "9.jfif",
+    "a.jfif", "b.jfif", "c.jfif", "d.jfif", "e.jfif", "f.jfif",
+    "A.jfif", "B.jfif", "C.jfif", "D.jfif", "E.jfif", "F.jfif"
+  ];
+
+  let bgIndex = 0;
+  const servicesSection = document.getElementById("services");
+
+  function changeBackground() {
+    servicesSection.style.backgroundImage = `url('${backgroundImages[bgIndex]}')`;
+    bgIndex = (bgIndex + 1) % backgroundImages.length;
+  }
+
+  changeBackground();
+  setInterval(changeBackground, 180000); // toutes les 3 minutes
+    </script>
+
+    <script>
+  // 👥 Gestion de l'équipe
+  const team = [
+    { img: "Senior.jpg", name: "Simon MVITA", role: "Sinior Manager" },
+    { img: "Chargé de vente.jpg", name: "Israel KABANGE", role: "Responsable Vente" },
+    { img: "Secrétaire.jpg", name: "David Mulumba", role: "Sécrétaire" },
+    { img: "FREDY.jpg", name: "Freddy MUEPU", role: "Chargée de l'automobile" }
+  ];
+
+  let currentTeam = 0;
+
+  function showTeam(index) {
+    const photo = document.getElementById("team-photo");
+    const name = document.getElementById("team-name");
+    const role = document.getElementById("team-role");
+
+    const person = team[index];
+    photo.src = person.img;
+    name.textContent = person.name;
+    role.textContent = person.role;
+  }
+
+  function nextTeam() {
+    currentTeam = (currentTeam + 1) % team.length;
+    showTeam(currentTeam);
+  }
+
+  function prevTeam() {
+    currentTeam = (currentTeam - 1 + team.length) % team.length;
+    showTeam(currentTeam);
+  }
+
+  showTeam(currentTeam);
+    </script>
+
+    <script>
+  // 🌐 Gestion du menu de langue
+  function toggleLangMenu() {
+    const menu = document.getElementById("lang-menu");
+    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+  }
+
+  function setLanguage(lang) {
+    document.querySelectorAll(".lang").forEach(el => {
+      el.style.display = el.dataset.lang === lang ? "" : "none";
+    });
+
+    localStorage.setItem("lang", lang);
+    document.getElementById("lang-menu").style.display = "none";
+  }
+
+  window.addEventListener("DOMContentLoaded", () => {
+    const savedLang = localStorage.getItem("lang") || "fr";
+    setLanguage(savedLang);
+  });
+    </script>
+
+</body>
+</html>
