@@ -481,6 +481,23 @@
     margin-bottom: 30px;
   }
 }
+@media screen and (max-width: 768px) {
+  footer {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 20px !important;
+    box-sizing: border-box;
+    text-align: center !important;
+  }
+
+  footer img {
+    width: auto !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 10px 5px !important;
+  }
+}
+
 
 </style>
 
@@ -756,26 +773,29 @@
 
 
 
-    <footer>
-        <img src="adresse.png" alt="Adresse" width="50" style="margin-bottom: 10px;"><br>
-        N° 43, Commune Ruashi<br>
-        Avenue Kiwele<br>
-        Ville de Lubumbashi<br>
-        République Démocratique du Congo<br>
+   <footer style="width: 100%; max-width: 100%; margin: 0 auto; padding: 20px; box-sizing: border-box; text-align: center;">
+  <img src="adresse.png" alt="Adresse" style="width: 50px; margin-bottom: 10px;"><br>
+  N° 43, Commune Ruashi<br>
+  Avenue Kiwele<br>
+  Ville de Lubumbashi<br>
+  République Démocratique du Congo<br>
 
-        <hr style="border: none; height: 1px; background-color: #ccc; width: 60%; margin: 20px auto;">
+  <hr style="border: none; height: 1px; background-color: #ccc; width: 80%; margin: 20px auto;">
 
-        <img src="Email.png" alt="Email" width="30" style="margin-right: 20px;">
-        <img src="tel.png" alt="Téléphone" width="30"><br><br>
+  <div>
+    <img src="Email.png" alt="Email" style="width: 30px; margin-right: 10px;">
+    <img src="tel.png" alt="Téléphone" style="width: 30px;">
+  </div>
 
-        <div style="color: #00aaff; font-weight: bold;">
-            mvitapasteursimon@gmail.com
-        </div>
+  <div style="color: #00aaff; font-weight: bold; margin-top: 10px;">
+    mvitapasteursimon@gmail.com
+  </div>
 
-        <div style="margin-top: 10px;">
-            +243 976 046 314 / +243 895 967 191
-        </div>
-    </footer>
+  <div style="margin-top: 10px;">
+    +243 976 046 314 / +243 895 967 191
+  </div>
+</footer>
+
     <script>
   // 🎞️ Slideshow secondaire (photo-overlay) : images 3s, vidéos 2min
   let slideIndex = 0;
@@ -890,4 +910,5 @@
 
 </body>
 </html>
+
 
