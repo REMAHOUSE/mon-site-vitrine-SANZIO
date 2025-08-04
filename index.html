@@ -2,496 +2,115 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>RHEMAHOUSE</title>
+  <title>Entreprise de Transport</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Icône du site -->
+  <link rel="icon" type="image/png" href="logo.png"> <!-- ⚠️ Assure-toi que logo.png est présent -->
 
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      padding-top: 170px;
-      font-family: Arial, sans-serif;
-      background-color: #ffffff;
-    }
-
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      background-color: #001f3f;
-      color: yellow;
-      padding: 17px 0;
-      text-align: center;
-      font-size: 60px;
-      font-weight: bold;
-      font-family: "Arial Black", sans-serif;
-    }
-
-    .navbar {
-      position: fixed;
-      top: 120px;
-      left: 0;
-      width: 100%;
-      height: auto;
-      background-color: #ffffff;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 20px;
-      box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
-      z-index: 999;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 25px;
-      font-family: "Arial Black", sans-serif;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: #001f3f;
-      font-size: 20px;
-      font-weight: bold;
-    }
-
-    .nav-links a:hover {
-      color: #007BFF;
-    }
-
-    .menu-icon {
-      width: 40px;
-      height: 40px;
-      cursor: pointer;
-    }
-
-    .inline-search {
-      display: flex;
-      align-items: center;
-      width: 100%;
-      justify-content: center;
-      margin: 10px 0;
-    }
-
-    .inline-search input {
-      padding: 5px 10px;
-      font-size: 14px;
-      border: 2px solid #001f3f;
-      border-radius: 20px 0 0 20px;
-      outline: none;
-      font-family: Arial, sans-serif;
-      width: 70%;
-    }
-
-    .inline-search button {
-      height: 40px;
-      border: 2px solid #001f3f;
-      border-left: none;
-      border-radius: 0 20px 20px 0;
-      background-color: transparent;
-      cursor: pointer;
-      padding: 3px 6px;
-      display: flex;
-      align-items: center;
-    }
-
-    .loupe-icon {
-      width: 30px;
-      height: 30px;
-    }
-
-    .lang-menu {
-      position: absolute;
-      top: 80px;
-      right: 80px;
-      background-color: #ffffff;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-      border-radius: 8px;
-      padding: 8px;
-      display: none;
-      flex-direction: column;
-      z-index: 1001;
-    }
-
-    .lang-menu button {
-      background: none;
-      border: none;
-      padding: 5px;
-      margin: 4px 0;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-    }
-
-    .lang-menu img {
-      width: 28px;
-      height: 20px;
-      border-radius: 4px;
-      box-shadow: 0 0 2px rgba(0,0,0,0.2);
-    }
-  </style>
+  <!-- Fichier JS -->
+  <script src="script.js" defer></script>
 </head>
 <body>
-
-  <header>RHEMAHOUSE</header>
-
-  <div class="navbar">
-    <form class="inline-search">
-      <input type="text" placeholder="Rechercher...">
-      <button type="submit">
-        <img src="loupe.png" alt="Loupe" class="loupe-icon">
-      </button>
-    </form>
-
-    <!-- Français -->
-    <div class="nav-links lang" data-lang="fr">
-      <a href="#">Accueil</a>
-      <a href="#services">Nos services</a>
-      <a href="#contact-mail">Nous contacter</a>
-      <a href="#">Galerie</a>
-      <a href="#">Notre mission</a>
-    </div>
-
-    <!-- Anglais -->
-    <div class="nav-links lang" data-lang="en" style="display: none;">
-      <a href="#">Home</a>
-      <a href="#services">Our Services</a>
-      <a href="#contact-mail">Contact Us</a>
-      <a href="#">Gallery</a>
-      <a href="#">Our Mission</a>
-    </div>
-
-    <img src="burger-menu.png" alt="Menu" class="menu-icon" onclick="toggleLangMenu()">
-
-    <div class="lang-menu" id="lang-menu">
-      <button onclick="setLanguage('fr')"><img src="FRANCE.png" alt="Français" title="Français"></button>
-      <button onclick="setLanguage('en')"><img src="R.jfif" alt="English" title="English"></button>
-    </div>
-  </div>
-      <div class="image-container" style="background-image: url('try.jfif'); background-size: cover; background-position: center; background-attachment: fixed; height: 100vh; position: relative; color: white;">
-    <div class="overlay-box" style="width: 90%; margin: 30px auto; padding: 20px; background-color: rgba(0, 31, 63, 0.75); border-radius: 20px; text-align: center;">
-      <h2 class="lang" data-lang="fr">🚀 Nos services</h2>
-      <h2 class="lang" data-lang="en" style="display: none;">🚀 Our Services</h2>
-
-      <ul class="lang" data-lang="fr" style="list-style-position: inside; padding-left: 0; font-size: 18px;">
-        <li>Montage de Tricycles</li>
-        <li>Transport des Tricycles</li>
-        <li>Vente des pièces de rechange</li>
-        <li>Réparation de véhicules</li>
-        <li>Réparation de motos</li>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="logo.png" alt="Logo"> <!-- ⚠️ Logo existant à conserver -->
+      </div>
+      <ul class="nav-links">
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#services">Nos services</a></li>
+        <li><a href="#mission">Notre mission</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#contact">Nous contacter</a></li>
       </ul>
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <img src="burger-menu.png" alt="Menu"> <!-- ⚠️ Image de menu à ajouter -->
+      </div>
+      <div class="flag-container" style="display: none;">
+        <img src="fr.png" alt="Français" onclick="setLanguage('fr')"> <!-- ⚠️ Image de drapeau France -->
+        <img src="en.png" alt="English" onclick="setLanguage('en')"> <!-- ⚠️ Image de drapeau Angleterre -->
+      </div>
+    </nav>
+  </header>
 
-      <ul class="lang" data-lang="en" style="display: none; list-style-position: inside; padding-left: 0; font-size: 18px;">
-        <li>Tricycle Assembly</li>
-        <li>Tricycle Transport</li>
-        <li>Spare Parts Sales</li>
-        <li>Vehicle Repair</li>
-        <li>Motorbike Repair</li>
-      </ul>
+  <section id="accueil">
+    <div class="hero">
+      <img src="montage.jpg" alt="Image d’accueil"> <!-- ✅ Image existante -->
+      <h1>Bienvenue chez notre entreprise</h1>
     </div>
-
-    <div class="overlay-right" style="width: 90%; margin: 30px auto; padding: 20px; background-color: rgba(0, 31, 63, 0.75); border-radius: 20px; text-align: center;">
-      <h2 class="lang" data-lang="fr">Notre mission</h2>
-      <h2 class="lang" data-lang="en" style="display: none;">Our Mission</h2>
-
-      <p class="lang" data-lang="fr" style="font-size: 16px;">
-        Chez Rhemahouse, notre mission est de fournir des solutions de transport innovantes et fiables à Lubumbashi
-        et au-delà. Nous nous engageons à améliorer la mobilité de nos clients grâce à nos tricycles de haute qualité
-        et nos services de réparation. Notre vision est de devenir le leader du marché dans le secteur du montage de tricycles
-        et des services connexes en République Démocratique du Congo.<br>
-        <em>Votre confiance, notre moteur.</em>
-      </p>
-
-      <p class="lang" data-lang="en" style="display: none; font-size: 16px;">
-        At Rhemahouse, our mission is to provide innovative and reliable transport solutions in Lubumbashi
-        and beyond. We are committed to improving our clients’ mobility through our high-quality tricycles
-        and repair services. Our vision is to become the market leader in tricycle assembly
-        and related services in the Democratic Republic of the Congo.<br>
-        <em>Your trust, our drive.</em>
-      </p>
+      <section id="services">
+    <h2>Nos Services</h2>
+    <div class="services-container">
+      <div class="service">
+        <img src="transport.jfif" alt="Transport"> <!-- ✅ Image existante -->
+        <h3>Transport de marchandises</h3>
+        <p>Nous assurons la livraison de vos colis rapidement et en toute sécurité.</p>
+      </div>
+      <div class="service">
+        <img src="livraison.jpg" alt="Livraison"> <!-- ⚠️ Nouvelle image à ajouter si absente -->
+        <h3>Livraison express</h3>
+        <p>Un service rapide pour vos envois urgents.</p>
+      </div>
     </div>
-  </div>
-    <div class="services-section" style="display: flex; flex-direction: column; gap: 30px; padding: 20px; background-color: #f9f9f9;">
-  
-  <!-- Service 1 -->
-  <div class="service-item" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-    <img src="assembly.jpg" alt="Montage de tricycles" style="width: 90%; border-radius: 15px;">
-    <h3 class="lang" data-lang="fr">Montage de Tricycles</h3>
-    <h3 class="lang" data-lang="en" style="display: none;">Tricycle Assembly</h3>
-    <p class="lang" data-lang="fr">Nous assemblons des tricycles robustes adaptés à tous les types de transport urbain.</p>
-    <p class="lang" data-lang="en" style="display: none;">We assemble durable tricycles suited for all types of urban transport.</p>
-  </div>
+  </section>
 
-  <!-- Service 2 -->
-  <div class="service-item" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-    <img src="transport.jpg" alt="Transport des tricycles" style="width: 90%; border-radius: 15px;">
-    <h3 class="lang" data-lang="fr">Transport des Tricycles</h3>
-    <h3 class="lang" data-lang="en" style="display: none;">Tricycle Transport</h3>
-    <p class="lang" data-lang="fr">Nous livrons vos tricycles partout à Lubumbashi en toute sécurité.</p>
-    <p class="lang" data-lang="en" style="display: none;">We deliver your tricycles safely across Lubumbashi.</p>
-  </div>
-
-  <!-- Service 3 -->
-  <div class="service-item" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-    <img src="spareparts.jpg" alt="Pièces de rechange" style="width: 90%; border-radius: 15px;">
-    <h3 class="lang" data-lang="fr">Pièces de Rechange</h3>
-    <h3 class="lang" data-lang="en" style="display: none;">Spare Parts</h3>
-    <p class="lang" data-lang="fr">Large choix de pièces de qualité pour vos véhicules et motos.</p>
-    <p class="lang" data-lang="en" style="display: none;">Wide selection of quality parts for your vehicles and motorbikes.</p>
-  </div>
-
-</div>
-    <div class="testimonials-section" style="padding: 30px 15px; background-color: #fff; color: #002040;">
-  <h2 class="lang" data-lang="fr" style="text-align: center;">Ce que nos clients disent</h2>
-  <h2 class="lang" data-lang="en" style="display: none; text-align: center;">What Our Clients Say</h2>
-
-  <div style="display: flex; flex-direction: column; gap: 20px; margin-top: 30px;">
-    
-    <!-- Témoignage 1 -->
-    <div class="testimonial" style="background-color: #f1f1f1; padding: 20px; border-radius: 10px;">
-      <p class="lang" data-lang="fr">🗣️ “Service impeccable ! Mon tricycle est arrivé en parfait état. Je recommande fortement.”<br><strong>- Joseph K.</strong></p>
-      <p class="lang" data-lang="en" style="display: none;">🗣️ “Outstanding service! My tricycle arrived in perfect condition. Highly recommended.”<br><strong>- Joseph K.</strong></p>
+  <section id="mission">
+    <h2>Notre Mission</h2>
+    <div class="mission-container">
+      <img src="mission.jpg" alt="Mission"> <!-- ⚠️ Nouvelle image à ajouter si absente -->
+      <p>Notre mission est d’assurer la satisfaction de nos clients à travers un service de qualité et fiable.</p>
     </div>
+  </section>
 
-    <!-- Témoignage 2 -->
-    <div class="testimonial" style="background-color: #f1f1f1; padding: 20px; border-radius: 10px;">
-      <p class="lang" data-lang="fr">🗣️ “Le personnel est très professionnel et les réparations ont été rapides.”<br><strong>- Amina B.</strong></p>
-      <p class="lang" data-lang="en" style="display: none;">🗣️ “Very professional staff, and the repairs were quick.”<br><strong>- Amina B.</strong></p>
+  <section id="galerie">
+    <h2>Galerie</h2>
+    <div class="galerie-container">
+      <img src="photo1.jpg" alt="Galerie 1"> <!-- ⚠️ Nouvelle image à ajouter -->
+      <img src="photo2.jpg" alt="Galerie 2"> <!-- ⚠️ Nouvelle image à ajouter -->
+      <img src="photo3.jpg" alt="Galerie 3"> <!-- ⚠️ Nouvelle image à ajouter -->
     </div>
+  </section>
 
-    <!-- Témoignage 3 -->
-    <div class="testimonial" style="background-color: #f1f1f1; padding: 20px; border-radius: 10px;">
-      <p class="lang" data-lang="fr">🗣️ “La qualité des pièces de rechange est exceptionnelle. Merci, Rhemahouse !”<br><strong>- Eric M.</strong></p>
-      <p class="lang" data-lang="en" style="display: none;">🗣️ “Spare part quality is exceptional. Thank you, Rhemahouse!”<br><strong>- Eric M.</strong></p>
+  <section id="contact">
+    <h2>Nous Contacter</h2>
+    <div class="contact-container">
+      <p>Email : contact@tonsite.com</p>
+      <p>Téléphone : +243 xxx xxx xxx</p>
+      <img src="Email.png" alt="Email"> <!-- ✅ Image existante -->
+      <img src="telephone.png" alt="Téléphone"> <!-- ⚠️ Nouvelle image à ajouter si absente -->
     </div>
+  </section>
+      <footer>
+    <p>&copy; 2025 Entreprise de Transport - Tous droits réservés.</p>
+  </footer>
 
-  </div>
-</div>
-    <div class="gallery-section" style="padding: 30px 20px; background-color: #f4f4f4;">
-  <h2 class="lang" data-lang="fr" style="text-align: center; margin-bottom: 20px;">Galerie</h2>
-  <h2 class="lang" data-lang="en" style="display: none; text-align: center; margin-bottom: 20px;">Gallery</h2>
+  <!-- Script JS -->
+  <script>
+    function toggleMenu() {
+      const flagContainer = document.querySelector('.flag-container');
+      flagContainer.style.display = (flagContainer.style.display === 'none') ? 'block' : 'none';
+    }
 
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
-    <img src="gallery1.jpg" alt="Tricycle en montage" style="width: 100%; border-radius: 10px;">
-    <img src="gallery2.jpg" alt="Transport des tricycles" style="width: 100%; border-radius: 10px;">
-    <img src="gallery3.jpg" alt="Atelier de réparation" style="width: 100%; border-radius: 10px;">
-    <img src="gallery4.jpg" alt="Pièces en stock" style="width: 100%; border-radius: 10px;">
-  </div>
-</div>
-    <div class="about-section" style="background-color: #fff; color: #002040; padding: 40px 20px;">
-  <h2 class="lang" data-lang="fr" style="text-align: center;">À propos de nous</h2>
-  <h2 class="lang" data-lang="en" style="display: none; text-align: center;">About Us</h2>
+    function setLanguage(lang) {
+      if (lang === 'fr') {
+        alert("Langue changée en Français."); // Tu peux remplacer par une vraie logique plus tard
+      } else if (lang === 'en') {
+        alert("Language switched to English.");
+      }
+    }
 
-  <div style="max-width: 800px; margin: auto; text-align: center; font-size: 17px;">
-    <p class="lang" data-lang="fr">
-      Rhemahouse est une entreprise fondée à Lubumbashi avec une passion pour l’innovation dans le transport léger.
-      Depuis nos débuts, nous nous consacrons à offrir des services fiables et accessibles autour du montage de tricycles,
-      du transport et de la réparation. Ce qui nous anime ? Le désir d’améliorer la mobilité et la vie quotidienne de nos clients.
-      Notre équipe engagée est toujours prête à relever les défis avec professionnalisme et intégrité.
-    </p>
-
-    <p class="lang" data-lang="en" style="display: none;">
-      Rhemahouse is a company founded in Lubumbashi with a passion for innovation in light transport.
-      Since the beginning, we’ve been committed to providing reliable and accessible services in tricycle assembly,
-      transport, and repairs. What drives us? The desire to improve our clients’ mobility and daily lives.
-      Our dedicated team is always ready to meet challenges with professionalism and integrity.
-    </p>
-  </div>
-</div>
-<footer style="background-color: #002040; color: white; padding: 30px 20px; text-align: center;">
-  <div style="max-width: 800px; margin: auto;">
-    
-    <!-- Coordonnées -->
-    <p class="lang" data-lang="fr">📍 Lubumbashi, RD Congo | ☎️ +243 999 999 999 | ✉️ info@rhemahouse.cd</p>
-    <p class="lang" data-lang="en" style="display: none;">📍 Lubumbashi, DR Congo | ☎️ +243 999 999 999 | ✉️ info@rhemahouse.cd</p>
-    
-    <!-- Réseaux sociaux -->
-    <div style="margin-top: 15px;">
-      <a href="https://facebook.com/rhemahouse" style="margin: 0 10px; color: white; text-decoration: none;">Facebook</a>
-      <a href="https://instagram.com/rhemahouse" style="margin: 0 10px; color: white; text-decoration: none;">Instagram</a>
-      <a href="https://wa.me/243999999999" style="margin: 0 10px; color: white; text-decoration: none;">WhatsApp</a>
-    </div>
-
-    <!-- Copyright -->
-    <div style="margin-top: 20px; font-size: 14px;">
-      <p>© 2025 Rhemahouse. Tous droits réservés.</p>
-    </div>
-  </div>
-</footer>
-    <div class="faq-section" style="padding: 40px 20px; background-color: #f9f9f9;">
-  <h2 class="lang" data-lang="fr" style="text-align: center;">Foire aux Questions</h2>
-  <h2 class="lang" data-lang="en" style="display: none; text-align: center;">Frequently Asked Questions</h2>
-
-  <div style="max-width: 800px; margin: auto; display: flex; flex-direction: column; gap: 20px;">
-
-    <!-- Question 1 -->
-    <div class="faq-item" style="background-color: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 5px rgba(0,0,0,0.1);">
-      <h3 class="lang" data-lang="fr">🛠️ Faites-vous la réparation sur place ou à l’atelier ?</h3>
-      <h3 class="lang" data-lang="en" style="display: none;">🛠️ Do you repair on-site or in the workshop?</h3>
-      <p class="lang" data-lang="fr">Nous effectuons principalement les réparations dans notre atelier à Lubumbashi, mais des interventions mobiles peuvent être organisées sur demande.</p>
-      <p class="lang" data-lang="en" style="display: none;">We mainly carry out repairs at our Lubumbashi workshop, but mobile interventions can be arranged upon request.</p>
-    </div>
-
-    <!-- Question 2 -->
-    <div class="faq-item" style="background-color: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 5px rgba(0,0,0,0.1);">
-      <h3 class="lang" data-lang="fr">🚚 Jusqu’où livrez-vous les tricycles ?</h3>
-      <h3 class="lang" data-lang="en" style="display: none;">🚚 How far do you deliver tricycles?</h3>
-      <p class="lang" data-lang="fr">Nous couvrons toute la ville de Lubumbashi, et des livraisons en dehors peuvent être discutées selon le cas.</p>
-      <p class="lang" data-lang="en" style="display: none;">We deliver across Lubumbashi, and deliveries outside the city can be arranged on a case-by-case basis.</p>
-    </div>
-
-    <!-- Question 3 -->
-    <div class="faq-item" style="background-color: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 5px rgba(0,0,0,0.1);">
-      <h3 class="lang" data-lang="fr">🔧 Fournissez-vous les pièces avec la réparation ?</h3>
-      <h3 class="lang" data-lang="en" style="display: none;">🔧 Do you supply parts with the repair?</h3>
-      <p class="lang" data-lang="fr">Oui, nous disposons d’un large stock de pièces de rechange que nous intégrons selon les besoins du client.</p>
-      <p class="lang" data-lang="en" style="display: none;">Yes, we have a large inventory of spare parts that we provide as needed during repairs.</p>
-    </div>
-
-  </div>
-</div>
-    <div class="contact-section" style="padding: 40px 20px; background-color: #eef2f5;">
-  <h2 class="lang" data-lang="fr" style="text-align: center;">Contactez-nous</h2>
-  <h2 class="lang" data-lang="en" style="display: none; text-align: center;">Contact Us</h2>
-
-  <form action="#" method="post" style="max-width: 600px; margin: auto; display: flex; flex-direction: column; gap: 15px;">
-    
-    <input type="text" name="name" placeholder="Nom / Name" required style="padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
-    
-    <input type="email" name="email" placeholder="Email" required style="padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
-    
-    <textarea name="message" placeholder="Votre message / Your message" rows="5" required style="padding: 10px; border-radius: 8px; border: 1px solid #ccc;"></textarea>
-    
-    <button type="submit" style="background-color: #002040; color: white; padding: 12px; border: none; border-radius: 8px; cursor: pointer;">📤 Envoyer / Send</button>
-    
-  </form>
-</div>
-    <div class="team-section" style="padding: 40px 20px; background-color: #fff;">
-  <h2 class="lang" data-lang="fr" style="text-align: center;">Notre Équipe</h2>
-  <h2 class="lang" data-lang="en" style="display: none; text-align: center;">Our Team</h2>
-
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin-top: 30px;">
-    
-    <!-- Membre 1 -->
-    <div style="text-align: center;">
-      <img src="team1.jpg" alt="Responsable Atelier" style="width: 100%; border-radius: 50%; max-width: 150px;">
-      <h3 class="lang" data-lang="fr">Jean Mwamba</h3>
-      <h3 class="lang" data-lang="en" style="display: none;">Jean Mwamba</h3>
-      <p class="lang" data-lang="fr" style="font-size: 15px;">Responsable Atelier</p>
-      <p class="lang" data-lang="en" style="display: none; font-size: 15px;">Workshop Manager</p>
-    </div>
-
-    <!-- Membre 2 -->
-    <div style="text-align: center;">
-      <img src="team2.jpg" alt="Chef logistique" style="width: 100%; border-radius: 50%; max-width: 150px;">
-      <h3 class="lang" data-lang="fr">Aline Kasongo</h3>
-      <h3 class="lang" data-lang="en" style="display: none;">Aline Kasongo</h3>
-      <p class="lang" data-lang="fr" style="font-size: 15px;">Chef Logistique</p>
-      <p class="lang" data-lang="en" style="display: none; font-size: 15px;">Logistics Lead</p>
-    </div>
-
-    <!-- Membre 3 -->
-    <div style="text-align: center;">
-      <img src="team3.jpg" alt="Technicien principal" style="width: 100%; border-radius: 50%; max-width: 150px;">
-      <h3 class="lang" data-lang="fr">Patrick Ilunga</h3>
-      <h3 class="lang" data-lang="en" style="display: none;">Patrick Ilunga</h3>
-      <p class="lang" data-lang="fr" style="font-size: 15px;">Technicien Principal</p>
-      <p class="lang" data-lang="en" style="display: none; font-size: 15px;">Lead Technician</p>
-    </div>
-
-  </div>
-</div>
-<div class="timeline-section" style="padding: 40px 20px; background-color: #f0f4f8;">
-  <h2 class="lang" data-lang="fr" style="text-align: center;">Notre Histoire</h2>
-  <h2 class="lang" data-lang="en" style="display: none; text-align: center;">Our History</h2>
-
-  <div style="max-width: 800px; margin: auto; display: flex; flex-direction: column; gap: 30px;">
-
-    <!-- Étape 1 -->
-    <div style="background-color: #fff; padding: 20px; border-left: 5px solid #002040; border-radius: 5px;">
-      <h3 style="margin: 0;">2019</h3>
-      <p class="lang" data-lang="fr">📌 Fondation de Rhemahouse avec une mission claire : améliorer la mobilité locale.</p>
-      <p class="lang" data-lang="en" style="display: none;">📌 Rhemahouse is founded with a clear mission: improve local mobility.</p>
-    </div>
-
-    <!-- Étape 2 -->
-    <div style="background-color: #fff; padding: 20px; border-left: 5px solid #002040; border-radius: 5px;">
-      <h3 style="margin: 0;">2021</h3>
-      <p class="lang" data-lang="fr">🚛 Premier contrat de transport avec une flotte de tricycles entièrement montée.</p>
-      <p class="lang" data-lang="en" style="display: none;">🚛 First transport contract with a fully assembled tricycle fleet.</p>
-    </div>
-
-    <!-- Étape 3 -->
-    <div style="background-color: #fff; padding: 20px; border-left: 5px solid #002040; border-radius: 5px;">
-      <h3 style="margin: 0;">2023</h3>
-      <p class="lang" data-lang="fr">🔧 Ouverture du nouvel atelier de réparation à Lubumbashi.</p>
-      <p class="lang" data-lang="en" style="display: none;">🔧 Opening of the new repair workshop in Lubumbashi.</p>
-    </div>
-
-    <!-- Étape 4 -->
-    <div style="background-color: #fff; padding: 20px; border-left: 5px solid #002040; border-radius: 5px;">
-      <h3 style="margin: 0;">2025</h3>
-      <p class="lang" data-lang="fr">🌐 Lancement du site web pour étendre nos services et notre visibilité.</p>
-      <p class="lang" data-lang="en" style="display: none;">🌐 Website launch to expand our services and visibility.</p>
-    </div>
-
-  </div>
-</div>
-<!-- Menu Sticky -->
-<header style="position: sticky; top: 0; background-color: #002040; color: white; z-index: 999; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center;">
-  <div style="font-size: 20px; font-weight: bold;">Rhemahouse</div>
-
-  <nav style="display: flex; gap: 15px; font-size: 16px;">
-    <a href="#services" style="color: white; text-decoration: none;" class="lang" data-lang="fr">Services</a>
-    <a href="#services" style="display: none; color: white; text-decoration: none;" class="lang" data-lang="en">Services</a>
-
-    <a href="#mission" style="color: white; text-decoration: none;" class="lang" data-lang="fr">Mission</a>
-    <a href="#mission" style="display: none; color: white; text-decoration: none;" class="lang" data-lang="en">Mission</a>
-
-    <a href="#contact" style="color: white; text-decoration: none;" class="lang" data-lang="fr">Contact</a>
-    <a href="#contact" style="display: none; color: white; text-decoration: none;" class="lang" data-lang="en">Contact</a>
-  </nav>
-
-  <!-- Bouton switch langue -->
-  <button onclick="switchLanguage()" style="background-color: white; color: #002040; border: none; border-radius: 5px; padding: 5px 10px; cursor: pointer;">🌐 FR / EN</button>
-</header>
-
-<script>
-  function switchLanguage() {
-    const elements = document.querySelectorAll('.lang');
-    elements.forEach(el => {
-      const current = el.getAttribute('data-lang');
-      el.style.display = (el.style.display === 'none') ? (current === 'fr' ? 'block' : 'inline') : 'none';
+    // Scroll fluide vers les sections
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const section = document.querySelector(this.getAttribute('href'));
+        section.scrollIntoView({ behavior: 'smooth' });
+      });
     });
-  }
-</script>
-<!-- Page d'accueil / Hero Section -->
-<section class="hero" style="height: 100vh; background-image: url('hero-bg.jpg'); background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; padding: 20px;">
-
-  <h1 class="lang" data-lang="fr" style="font-size: 36px; font-weight: bold;">Mobilité innovante à Lubumbashi</h1>
-  <h1 class="lang" data-lang="en" style="display: none; font-size: 36px; font-weight: bold;">Innovative Mobility in Lubumbashi</h1>
-
-  <p class="lang" data-lang="fr" style="font-size: 18px; margin-top: 10px;">Découvrez nos tricycles, services de réparation et pièces de qualité</p>
-  <p class="lang" data-lang="en" style="display: none; font-size: 18px; margin-top: 10px;">Explore our tricycles, repair services, and quality parts</p>
-
-  <a href="#services" style="margin-top: 20px; background-color: #002040; padding: 12px 20px; border-radius: 8px; color: white; text-decoration: none; font-size: 16px;">🚀 En savoir plus / Learn More</a>
-
-</section>
-    </body>
+  </script>
+</body>
 </html>
 
 
-
-
-
-
-
-
+  </section>
