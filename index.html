@@ -949,14 +949,15 @@
     document.getElementById("lang-menu").style.display = "none";
   }
 
-  window.addEventListener("DOMContentLoaded", () => {
-    const savedLang = localStorage.getItem("lang") || "fr";
-    setLanguage(savedLang);
-  });
+window.addEventListener("load", () => {
+  showSlide(slideIndex);
+});
+
     </script>
 
 </body>
 </html>
+
 
 
 
