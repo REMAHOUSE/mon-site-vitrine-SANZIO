@@ -384,13 +384,14 @@
   box-shadow: 0 0 2px rgba(0,0,0,0.2);
 }
 #contact-mail {
-  
+  display: flex;
+  justify-content: space-between;
   right: 40px;
   top: calc(100vh + 1150px);
   width: 350px;
   background-color: rgba(0, 31, 63, 0.85);
   color: white;
-  padding: 60px;
+  padding: 0 30px 20px;
   border-radius: 20px;
   font-family: Arial, sans-serif;
 }
@@ -494,8 +495,7 @@
     }
     #contact-mail {
     position: static;
-    width: 90%;
-    margin: 30px auto;
+    width: 100%;
     padding: 20px;
   } 
   }
@@ -721,13 +721,6 @@
         <img src="reparation.jpg" alt="Réparation" class="slide">
         <img src="moto.jpg" alt="Moto" class="slide">
 
-        <video class="slide" muted>
-            <source src="VIDEO 1.MP4" type="video/mp4">
-        </video>
-        <video class="slide" muted>
-            <source src="VIDEO 2.MP4" type="video/mp4">
-        </video>
-
     </div>
 
         <div class="team-overlay-custom">
@@ -815,17 +808,8 @@
       }
     });
 
-    const currentSlide = slides[index];
-    const delay = currentSlide.tagName === "VIDEO" ? 120000 : 3000; // 2 min ou 3 sec
-
-    setTimeout(() => {
-      if (currentSlide.tagName === "VIDEO") currentSlide.pause();
-      slideIndex = (slideIndex + 1) % slides.length;
-      showSlide(slideIndex);
-    }, delay);
   }
 
-  showSlide(slideIndex);
     </script>
 
     <script>
@@ -908,6 +892,7 @@
 
 </body>
 </html>
+
 
 
 
